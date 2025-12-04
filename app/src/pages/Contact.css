@@ -1,0 +1,130 @@
+.contact-page {
+  font-family: "Inter", sans-serif;
+}
+
+/* ================= HERO ================= */
+.contact-hero {
+  width: 100%;
+  background: linear-gradient(to right, #d9eae1, #e7efe9, #f3f7f3);
+  padding: 55px 0;
+  text-align: center;
+}
+
+.contact-hero h1 {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.contact-hero p {
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
+/* ================= MAIN LAYOUT ================= */
+.contact-container {
+  max-width: 1200px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+/* ---------- LEFT SIDE ---------- */
+.contact-left {
+  width: 35%;
+}
+
+.contact-box {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.contact-icon {
+  width: 42px;
+  height: 42px;
+  background: #dff0e9;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #0d745e;
+  font-size: 17px;
+}
+
+.contact-box h4 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.contact-box p {
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+/* ---------- RIGHT SIDE ---------- */
+.contact-right {
+  width: 60%;
+  background: #f6fbf8;
+  border: 1px solid #dfe9e4;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.contact-right h3 {
+  font-size: 20px;
+  margin-bottom: 22px;
+  font-weight: 700;
+}
+
+/* ---------- FORM ---------- */
+.contact-form label {
+  display: block;
+  margin-bottom: 18px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.contact-form span {
+  color: #d9534f;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  outline: none;
+  font-size: 14px;
+}
+
+.contact-form textarea {
+  height: 110px;
+  resize: none;
+}
+
+.contact-submit {
+  width: 100%;
+  background: #0d745e;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.contact-submit:hover {
+  background: #095d4a;
+  transform: translateY(-2px);
+}

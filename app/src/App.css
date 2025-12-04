@@ -1,0 +1,136 @@
+
+.navbar {
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: var(--color-accent);
+}
+
+/* NAV LINKS */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  font-size: 16px;
+}
+
+.nav-links li {
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.nav-links li:hover {
+  /* opacity: 0.65; */
+  color:  #347b65;
+}
+
+.dropdown-wrapper {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+/* DROPDOWN MENU */
+.services-dropdown {
+  list-style: none;
+  position: absolute;
+  top: 32px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px 0;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+
+  transition:
+    opacity 0.25s cubic-bezier(0.55, 0, 1, 0.45),
+
+    transform 1.95s cubic-bezier(0.18, 1, 0.15, 1);
+
+  z-index: 20;
+}
+
+
+.services-dropdown.open,
+.dropdown-wrapper:hover .services-dropdown,
+.dropdown-wrapper.force-open .services-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.services-dropdown li {
+  padding: 12px 18px;
+  font-size: 15px;
+  white-space: nowrap;
+  transition: 
+    background 0.35s ease,
+    color 0.35s ease,
+    transform 0.25s ease;
+}
+
+.services-dropdown li:hover {
+  background: #000;
+  color: #347b65;
+  /* transform: translateX(2px); */
+}
+
+
+.arrow {
+  display: inline-block;
+  margin-left: 4px;
+  width: 0;
+  height: 0;
+
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid black;
+
+  transition: transform 0.25s ease;
+}
+
+
+.arrow.up {
+  transform: rotate(0deg);
+  border-top-color: black;
+}
+
+
+.arrow.down {
+  transform: rotate(180deg);
+  border-top-color: rgb(62, 166, 133);
+}
+
+.view-services-link{
+  color: #ffffff77;
+}
+
+.view-services{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  
+}

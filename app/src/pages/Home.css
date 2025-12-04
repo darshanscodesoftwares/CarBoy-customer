@@ -1,0 +1,382 @@
+/* -------------------------------------
+   HERO SECTION
+------------------------------------- */
+
+.hero {
+  padding: 30px 0px 30px;
+}
+
+.hero-title {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-subtext {
+  font-size: 18px;
+  opacity: 0.7;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background: #000;
+  color: #fff;
+  font-size: 18px;
+  padding: 12px 30px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.cta-button:hover {
+  color: #347b65;
+  font-weight: 900;
+  transform: translateY(-3.5px);
+}
+
+/* -------------------------------------
+   ABOUT SECTION
+------------------------------------- */
+.about {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.about-title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.about-short {
+  font-size: 23px;
+  max-width: 800px;
+  margin: 0 auto 25px;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.about-readmore {
+  margin-top: 15px;
+  background: #000;
+  color: #fff;
+  font-size: 15px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-readmore:hover {
+  opacity: 0.8;
+}
+
+
+/* -------------------------------------
+   SERVICES SECTION
+------------------------------------- */
+.services-bgc{
+ background-color: #fbfbfb;
+}
+
+.services {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.services-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+  justify-items: center;
+}
+
+
+.service-card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid #e5e5e5;
+
+
+  transition:
+    background 0.6s ease-in-out,
+    color 0.6s ease-in-out,
+    transform 0.6s ease-in-out,
+    box-shadow 0.6s ease;
+}
+
+
+.service-card:hover {
+  box-shadow: 0px 8px 20px rgba(72, 128, 64, 0.13);
+  background: rgba(73, 123, 61, 0.318)
+}
+
+.service-card h4 {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  margin-top: 25px;
+}
+
+.service-card p {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+/* ---- SERVICE SECTION BACKGROUND ---- */
+.services-bgc {
+  width: 100%;
+  background: #ecececa0;
+  padding-top: 40px;
+}
+
+/* ---- READ MORE BUTTON ---- */
+.service-readmore {
+  margin-top: 15px;
+  background: #000;
+  color: #fff;
+  font-size: 15px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-readmore:hover {
+  background: #0d745e;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.tilted-overlay {
+  text-align: center;
+  padding: 12px;
+}
+
+.tilted-overlay h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.tilted-overlay p {
+  font-size: 14px;
+  opacity: 0.9;
+  color: #fff;
+}
+
+/* ------------------------------
+   VISION & MISSION
+------------------------------ */
+
+.vm-section {
+  max-width: 1200px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+  padding: 0 20px;
+  color: #e5e5e5;
+}
+
+.vm-card {
+  background: linear-gradient(to right, #0d745efa, #2aa588e7);
+  border: 1px solid #e5e5e5;
+  padding: 30px;
+  border-radius: 14px;
+  text-align: left;
+}
+
+.vm-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* ------------------------------
+   WHY CHOOSE CARBOY
+------------------------------ */
+
+.why-section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.why-title {
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.why-box {
+  background: #ffffff;
+  padding: 30px 20px;
+  border-radius: 16px;
+  border: 1px solid #e5e5e5;
+  transition: 0.3s ease;
+}
+
+.why-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.why-icon {
+  font-size: 35px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+
+
+/* ------------------------------
+   TESTIMONIALS
+------------------------------ */
+
+.testimonials {
+  text-align: center;
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.testimonial-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+.testimonial-box {
+  background: #f3f8f3;
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid #e0e0e0;
+}
+
+.testimonial-text {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.testimonial-person {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  gap: 12px;
+  justify-content: center;
+}
+
+.testimonial-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.testimonial-dots {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.t-dot {
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
+}
+
+.t-dot.active {
+  background: #347b65;
+}
+
+
+
+/* ------------------------------
+   CTA BANNER
+------------------------------ */
+
+.cta-banner {
+  background: linear-gradient(to right, #0d745e, #2aa588);
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+  border-radius: 14px;
+  max-width: 1200px;
+  margin: 80px auto;
+}
+
+.cta-banner h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.cta-banner p {
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.cta-banner-btn {
+  background: #fff;
+  color: #0d745e;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.cta-banner-btn:hover {
+  opacity: 0.85;
+}
+
+
+/* ------------------------------------
+   FOOTER
+------------------------------------- */
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 13px;
+  opacity: 0.7;
+  border-top: 1px solid #e5e5e5;
+  margin-top: 50px;
+}

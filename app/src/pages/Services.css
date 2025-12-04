@@ -1,0 +1,140 @@
+.services1 {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.services-title1 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.service-grid1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    justify-items: center;
+}
+
+/* Base transition (must be here, not inside :hover) */
+.service-card1 {
+    background: rgb(249, 249, 249);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #e5e5e5;
+
+    /* Smooth transitions */
+    transition:
+        background 0.6s ease-in-out,
+        color 0.6s ease-in-out,
+        transform 0.6s ease-in-out,
+        box-shadow 0.6s ease;
+}
+
+/* Hover effect */
+.service-card1:hover {
+    box-shadow: 0px 8px 20px rgba(72, 128, 64, 0.13);
+    /* #347b65 */
+    background: rgba(73, 123, 61, 0.318)
+        /* transform: translateY(-4px); */
+}
+
+.service-card1 h4 {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    margin-top: 25px;
+}
+
+.service-card1 p {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    text-align: center;
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+/* ---- SERVICE SECTION BACKGROUND ---- */
+.services-bgc {
+    width: 100%;
+    background: #ecececa0;
+    padding-top: 40px;
+}
+
+/* ---- READ MORE BUTTON ---- */
+.service-readmore {
+    margin-top: 15px;
+    background: #000;
+    color: #fff;
+    font-size: 15px;
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 200ms ease-in-out;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-readmore-vsh {
+    margin-top: 15px;
+    background: #000;
+    color: #fff;
+    font-size: 15px;
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 200ms ease-in-out;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+}
+
+.service-readmore:hover {
+    background: #0d745e;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.service-readmore-vsh:hover {
+    background: #0d745e;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+
+/* TiltedCard overlay styling */
+.tilted-overlay1 {
+    text-align: center;
+    padding: 12px;
+}
+
+.tilted-overlay1 h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #fff;
+}
+
+.tilted-overlay p {
+    font-size: 14px;
+    opacity: 0.9;
+    color: #fff;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    opacity: 0.7;
+    border-top: 1px solid #e5e5e5;
+    margin-top: 50px;
+}
