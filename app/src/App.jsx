@@ -5,7 +5,7 @@ import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 
-import Home from "./pages/home";
+import Home from "./pages/Home";
 import Services from "./pages/Services";
 import PDI from "./pages/PDI";
 import UCI from "./pages/UCI";
