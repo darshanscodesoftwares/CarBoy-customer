@@ -1,5 +1,5 @@
 import "./UCI.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 
 import heroImg from "../assets/4309.jpg";
@@ -7,6 +7,8 @@ import img1 from "../assets/1309.jpg";
 import img2 from "../assets/20980.jpg";
 
 export default function UCI() {
+  const navigate = useNavigate();
+
   return (
     <>
       {/* ===== HERO SECTION ===== */}
@@ -23,7 +25,12 @@ export default function UCI() {
             Comprehensive 150+ point inspection for pre-owned vehicles
           </p>
 
-          <button className="uci-book-btn">Book Inspection Now →</button>
+          <button
+            className="uci-book-btn"
+            onClick={() => navigate("/book-inspection?type=UCI")}
+          >
+            Book Inspection Now →
+          </button>
 
         </div>
       </section>
@@ -80,7 +87,12 @@ export default function UCI() {
             <h4>Location:</h4>
             <p>Chennai & Coimbatore</p>
 
-            <button className="uci-book-btn">Book Now</button>
+            <button
+              className="uci-book-btn"
+              onClick={() => navigate("/book-inspection?type=UCI")}
+            >
+              Book Now
+            </button>
           </div>
 
           <img src={img1} alt="UCI Side" className="uci-side-img" />

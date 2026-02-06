@@ -1,5 +1,5 @@
 import "./PDI.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 
 import heroImg from "../assets/16351.jpg";
@@ -7,6 +7,8 @@ import img1 from "../assets/19596.jpg";
 import img2 from "../assets/4309.jpg";
 
 export default function PDI() {
+  const navigate = useNavigate();
+
   return (
     <>
       {/* ===== HERO SECTION ===== */}
@@ -23,7 +25,12 @@ export default function PDI() {
             Ensure your brand-new car is delivered in perfect condition with our 150+ checkpoint inspection.
           </p>
 
-          <button className="pdi-book-btn">Book Inspection Now →</button>
+          <button
+            className="pdi-book-btn"
+            onClick={() => navigate("/book-inspection?type=PDI")}
+          >
+            Book Inspection Now →
+          </button>
 
         </div>
       </section>
@@ -90,7 +97,7 @@ export default function PDI() {
 
             <button
               className="pdi-book-btn"
-              onClick={() => (window.location.href = "/contact")}
+              onClick={() => navigate("/book-inspection?type=PDI")}
             >
               Book Now
             </button>
