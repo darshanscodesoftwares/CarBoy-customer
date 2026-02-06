@@ -12,6 +12,8 @@ import UCI from "./pages/UCI";
 import VSH from "./pages/VSH";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import BookInspection from "./pages/BookInspection";
+import BookingSuccess from "./pages/BookingSuccess";
 
 export default function App() {
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -106,6 +108,8 @@ export default function App() {
         <Route path="/services/vsh" element={<VSH />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
+        <Route path="/book-inspection" element={<BookInspection />} />
+        <Route path="/booking-success" element={<BookingSuccess />} />
       </Routes>
     </div>
   );
