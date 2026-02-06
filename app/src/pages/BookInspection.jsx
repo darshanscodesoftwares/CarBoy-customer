@@ -4,7 +4,6 @@ import axios from "axios";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 import "./BookInspection.css";
 
-const BOOKING_STORAGE_KEY = "carboy_booking_draft";
 const CUSTOMER_API_URL =
   import.meta.env.VITE_CUSTOMER_API_BASE_URL || "http://localhost:5005";
 
@@ -18,50 +17,6 @@ async function geocodeAddress(address) {
   const { lat, lng } = data.results[0].geometry.location;
   return { lat, lng };
 }
-
-const mapFormToStorageShape = (form, lat, lng, serviceType) => ({
-  serviceType,
-  customerSnapshot: {
-    name: form.customerName,
-    phone: form.customerPhone,
-    email: form.customerEmail,
-  },
-  vehicleSnapshot: {
-    brand: form.vehicleBrand,
-    model: form.vehicleModel,
-    year: form.vehicleYear,
-  },
-  schedule: {
-    date: form.scheduledDate,
-    slot: form.scheduledSlot,
-  },
-  location: {
-    address: form.locationAddress,
-    coordinates: {
-      lat,
-      lng,
-    },
-  },
-});
-
-const mapStorageToFormShape = (saved) => ({
-  form: {
-    customerName: saved?.customerSnapshot?.name || "",
-    customerPhone: saved?.customerSnapshot?.phone || "",
-    customerEmail: saved?.customerSnapshot?.email || "",
-    vehicleBrand: saved?.vehicleSnapshot?.brand || "",
-    vehicleModel: saved?.vehicleSnapshot?.model || "",
-    vehicleYear: saved?.vehicleSnapshot?.year || "",
-    scheduledDate: saved?.schedule?.date || "",
-    scheduledSlot: saved?.schedule?.slot || "",
-    locationAddress: saved?.location?.address || "",
-  },
-  serviceType: saved?.serviceType || "PDI",
-  coordinates: {
-    lat: saved?.location?.coordinates?.lat ?? null,
-    lng: saved?.location?.coordinates?.lng ?? null,
-  },
-});
 
 export default function BookInspection() {
   const navigate = useNavigate();
@@ -87,7 +42,6 @@ export default function BookInspection() {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [mapError, setMapError] = useState("");
-  const [draftRestored, setDraftRestored] = useState(false);
 
   const currentYear = useMemo(() => new Date().getFullYear(), []);
   const minDate = useMemo(() => {
@@ -100,73 +54,14 @@ export default function BookInspection() {
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "",
   });
 
-  const saveDraft = (latestForm, lat, lng, latestServiceType) => {
-    const payload = {
-      ...mapFormToStorageShape(latestForm, lat, lng, latestServiceType),
-      lastSavedAt: new Date().toISOString(),
-    };
-    localStorage.setItem(BOOKING_STORAGE_KEY, JSON.stringify(payload));
-  };
-
-  const resetFormState = () => {
-    const blankForm = {
-      customerName: "",
-      customerPhone: "",
-      customerEmail: "",
-      vehicleBrand: "",
-      vehicleModel: "",
-      vehicleYear: "",
-      scheduledDate: "",
-      scheduledSlot: "",
-      locationAddress: "",
-    };
-    setForm(blankForm);
-    setSelectedLat(null);
-    setSelectedLng(null);
-    setMarkerPosition(null);
-    setMapOpen(false);
-    setErrors({});
-    setMapError("");
-    setDraftRestored(false);
-    setServiceType(urlServiceType);
-  };
-
-  useEffect(() => {
-    const saved = localStorage.getItem(BOOKING_STORAGE_KEY);
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        const mapped = mapStorageToFormShape(parsed);
-        setForm(mapped.form);
-        setServiceType(mapped.serviceType);
-        setSelectedLat(mapped.coordinates.lat);
-        setSelectedLng(mapped.coordinates.lng);
-        if (mapped.coordinates.lat !== null && mapped.coordinates.lng !== null) {
-          setMarkerPosition({
-            lat: mapped.coordinates.lat,
-            lng: mapped.coordinates.lng,
-          });
-        }
-        setDraftRestored(true);
-        setTimeout(() => setDraftRestored(false), 5000);
-      } catch (err) {
-        console.error("Failed to restore booking draft", err);
-        localStorage.removeItem(BOOKING_STORAGE_KEY);
-      }
-    }
-  }, []);
-
   useEffect(() => {
     setServiceType(urlServiceType);
-    saveDraft(form, selectedLat, selectedLng, urlServiceType);
   }, [urlServiceType]);
 
   const handleChange = (field) => (event) => {
     const { value } = event.target;
-    const updatedForm = { ...form, [field]: value };
-    setForm(updatedForm);
+    setForm((prev) => ({ ...prev, [field]: value }));
     setErrors((prev) => ({ ...prev, [field]: "" }));
-    saveDraft(updatedForm, selectedLat, selectedLng, serviceType);
   };
 
   const validateForm = () => {
@@ -243,9 +138,6 @@ export default function BookInspection() {
     try {
       const { lat, lng } = await geocodeAddress(form.locationAddress);
       setMarkerPosition({ lat, lng });
-      setSelectedLat(lat);
-      setSelectedLng(lng);
-      saveDraft(form, lat, lng, serviceType);
       setMapOpen(true);
     } catch (error) {
       console.error(error);
@@ -263,7 +155,6 @@ export default function BookInspection() {
     setMapOpen(false);
     setMapError("");
     setErrors((prev) => ({ ...prev, locationCoordinates: "" }));
-    saveDraft(form, markerPosition.lat, markerPosition.lng, serviceType);
   };
 
   const handleSubmit = async (event) => {
@@ -318,9 +209,6 @@ export default function BookInspection() {
       // Then redirect to payment page / gateway
       // --------------------------------------------------
 
-      if (res.status === 201) {
-        localStorage.removeItem(BOOKING_STORAGE_KEY);
-      }
       navigate(`/booking-success?requestId=${requestId}`);
     } catch (err) {
       console.error(err);
@@ -340,21 +228,6 @@ export default function BookInspection() {
       <header className="book-inspection__header">
         <h1>Book Your Inspection</h1>
         <p>Fill in the details to schedule your inspection.</p>
-        {draftRestored && (
-          <div className="book-inspection__banner">
-            Draft restored from your last session.
-          </div>
-        )}
-        <button
-          type="button"
-          className="book-inspection__secondary-btn book-inspection__reset-btn"
-          onClick={() => {
-            localStorage.removeItem(BOOKING_STORAGE_KEY);
-            resetFormState();
-          }}
-        >
-          Start New Booking
-        </button>
       </header>
 
       <form className="book-inspection__form" onSubmit={handleSubmit}>
@@ -550,9 +423,6 @@ export default function BookInspection() {
                         const lat = event.latLng.lat();
                         const lng = event.latLng.lng();
                         setMarkerPosition({ lat, lng });
-                        setSelectedLat(lat);
-                        setSelectedLng(lng);
-                        saveDraft(form, lat, lng, serviceType);
                       }}
                     />
                   )}
