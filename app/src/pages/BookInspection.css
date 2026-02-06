@@ -21,20 +21,6 @@
   font-size: 1.05rem;
 }
 
-.book-inspection__banner {
-  margin: 16px auto 0;
-  padding: 10px 16px;
-  background: #e0f2fe;
-  color: #0f172a;
-  border-radius: 999px;
-  display: inline-block;
-  font-weight: 600;
-}
-
-.book-inspection__reset-btn {
-  margin-top: 16px;
-}
-
 .book-inspection__form {
   max-width: 900px;
   margin: 0 auto;
